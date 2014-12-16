@@ -21,7 +21,7 @@ window.onload = function() {
                                         
                                         fileDisplayArea.innerText = reader.result;
                                         data = reader.result;
-                                        var mySudoku = new Sudoku(data);
+                                        //var mySudoku = new Sudoku(data);
                                         
                                         
 				};
