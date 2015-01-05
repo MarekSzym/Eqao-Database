@@ -21,8 +21,7 @@ window.onload = function() {
                                         
                                         fileDisplayArea.innerText = reader.result;
                                         data = reader.result;
-                                        //var mySudoku = new Sudoku(data);
-                                        
+                                        var mySudoku = new Sudoku(data);
                                         
 				};
 
@@ -32,4 +31,8 @@ window.onload = function() {
 				fileDisplayArea.innerText = "File not supported!";
 			}
 		});
+};
+
+function Sudoku(data){
+    console.log("stuff worked");
 };
