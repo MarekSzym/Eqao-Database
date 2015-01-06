@@ -10,10 +10,10 @@ window.onload = function() {
 	fileInput.addEventListener('change', function(e) {
         
         var file = fileInput.files[0];
-        var textType = /text.*/;
+       
 
-            if (file.type.match(textType)) {
-                var reader = new FileReader();
+          
+            var reader = new FileReader();
 
 				reader.onload = function(e) {
                                     
@@ -25,7 +25,7 @@ window.onload = function() {
 
 				reader.readAsText(file);	
                                
-			}
+			
 		});
 };
 
