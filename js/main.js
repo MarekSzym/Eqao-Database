@@ -5,34 +5,30 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 }
 
 window.onload = function() {
-		var fileInput = document.getElementById('fileInput');
-		var fileDisplayArea = document.getElementById('fileDisplayArea');
-                var fileDisplayMessageArea = document.getElementById('fileDisplayMessageArea');
+    var fileInput = document.getElementById('fileInput');
                 
-		fileInput.addEventListener('change', function(e) {
-			var file = fileInput.files[0];
-			var textType = /text.*/;
+	fileInput.addEventListener('change', function(e) {
+        
+        var file = fileInput.files[0];
+        var textType = /text.*/;
 
-			if (file.type.match(textType)) {
-				var reader = new FileReader();
+            if (file.type.match(textType)) {
+                var reader = new FileReader();
 
 				reader.onload = function(e) {
-                                        fileDisplayMessageArea.innerText = 'Your file looks like this';
-                                        
-                                        fileDisplayArea.innerText = reader.result;
+                                    
                                         data = reader.result;
+                                        console.log(data);
                                         var mySudoku = new Sudoku(data);
                                         
 				};
 
 				reader.readAsText(file);	
                                
-			} else {
-				fileDisplayArea.innerText = "File not supported!";
 			}
 		});
 };
 
 function Sudoku(data){
-    console.log("stuff worked");
+    console.log(data);
 };
