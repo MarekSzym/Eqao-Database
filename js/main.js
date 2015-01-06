@@ -30,5 +30,5 @@ window.onload = function() {
 };
 
 function Sudoku(data){
-    console.log(data);
+    console.log("worked");
 };
