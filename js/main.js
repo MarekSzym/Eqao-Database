@@ -7,28 +7,37 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 window.onload = function() {
     var fileInput = document.getElementById('fileInput');
                 
-	fileInput.addEventListener('change', function(e) {
+    fileInput.addEventListener('change', function(e) {
         
         var file = fileInput.files[0];
-       
+         
+        var reader = new FileReader();
 
-          
-            var reader = new FileReader();
-
-				reader.onload = function(e) {
+        reader.onload = function(e) {
                                     
-                                        data = reader.result;
-                                        console.log(data);
-                                        var mySudoku = new Sudoku(data);
+            data = reader.result;
+            console.log(data);
+            var myStudents = new Students(data);
                                         
-				};
+	};
 
-				reader.readAsText(file);	
+	reader.readAsText(file);	
                                
 			
-		});
+	});
 };
 
-function Sudoku(data){
-    console.log("worked");
+function Student(OEN){
+    this.OEN = OEN;
+    this.Grd3 = {};
+    this.Grd6 = {};
 };
+
+function Students(data) {
+    this.data = data;
+    this.text = [];
+    
+    this.splitter = function(data){
+        
+    };
+}
