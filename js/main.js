@@ -38,6 +38,7 @@ function Students(data) {
     this.text = [];
     
     this.splitter = function(data){
-        
+        var 1ist = data.split("\n")
+        console.log(1ist)
     };
 }
