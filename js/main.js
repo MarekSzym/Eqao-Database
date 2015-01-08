@@ -34,8 +34,8 @@ function Student(OEN){
 };
 
 function Students(data) {
-    this.data = data;
     this.text = [];
+    this.students = [];
     
     this.splitter = function(data){
         var dist = data.split("\n");
@@ -44,6 +44,13 @@ function Students(data) {
         };
         this.text = dist;
     };
-    this.splitter(this.data);
+    this.splitter(data);
     
+    this.creator = function(){
+        for (var student = 1; student < this.text.length; student++){
+        var pupil = new Student(this.text[student][0]);
+        this.students.push(pupil);
+        };
+    };
+    this.creator();
 }
