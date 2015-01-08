@@ -16,7 +16,7 @@ window.onload = function() {
         reader.onload = function(e) {
                                     
             data = reader.result;
-            console.log(data);
+            //console.log(data);
             var myStudents = new Students(data);
                                         
 	};
@@ -38,7 +38,12 @@ function Students(data) {
     this.text = [];
     
     this.splitter = function(data){
-        var 1ist = data.split("\n")
-        console.log(1ist)
+        var dist = data.split("\n");
+        for(var line in dist){
+            dist[line] = dist[line].split(",");
+        };
+        this.text = dist;
     };
+    this.splitter(this.data);
+    
 }
