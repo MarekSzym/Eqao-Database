@@ -27,8 +27,11 @@ window.onload = function() {
 	});
 };
 
-function Student(OEN){
+function Student(OEN, name){
     this.OEN = OEN;
+    this.name = name;
+    this.gender = true;
+    this.IEP = false;
     this.Grd3 = {};
     this.Grd6 = {};
 };
@@ -48,9 +51,11 @@ function Students(data) {
     
     this.creator = function(){
         for (var student = 1; student < this.text.length; student++){
-        var pupil = new Student(this.text[student][0]);
+        var pupil = new Student(this.text[student][0], this.text[student][1]+this.text[student][2]);
         this.students.push(pupil);
         };
     };
     this.creator();
+    console.log(this.students[0].name[0]);
+    
 }
