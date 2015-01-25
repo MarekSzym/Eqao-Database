@@ -4,28 +4,28 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
   alert('The File APIs are not fully supported in this browser.');
 }
 
-window.onload = function() {
-    var fileInput = document.getElementById('fileInput');
-                
-    fileInput.addEventListener('change', function(e) {
-        
-        var file = fileInput.files[0];
-         
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-                                    
-            data = reader.result;
-            //console.log(data);
-            var myStudents = new Students(data);
-                                        
-	};
-
-	reader.readAsText(file);	
-                               
-			
-	});
-};
+//window.onload = function() {
+//    var fileInput = document.getElementById('fileInput');
+//                
+//    fileInput.addEventListener('change', function(e) {
+//        
+//        var file = fileInput.files[0];
+//         
+//        var reader = new FileReader();
+//
+//        reader.onload = function(e) {
+//                                    
+//            data = reader.result;
+//            //console.log(data);
+//            var myStudents = new Students(data);
+//                                        
+//	};
+//
+//	reader.readAsText(file);	
+//                               
+//			
+//	});
+//};
 
 function Student(OEN, name){
     this.OEN = OEN;
@@ -95,10 +95,43 @@ function Database() {
     this.search = function(OEN){
         for(var pupil = 0; pupil< this.students.length; pupil++){
             if(this.students[pupil].OEN === OEN){
-                return pupil
+                return pupil;
             }
         }
-    }
-    console.log(this.students[0].name[0]);
+    }    
+}
+var myDataBase = new Database();
+
+function handleSubmitButton(){
+    var fileInput = document.getElementById('fileInput');
+    var grade = document.getElementById('grdSelector');
+    var data;
+    fileInput.addEventListener('change', function(e) {
+        
+        var file = fileInput.files[0];
+         
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+                                    
+            data = reader.result;
+            console.log(data)
+                                        
+	};
+
+	reader.readAsText(file);	
+                               
+			
+	});
+    //myDataBase.addFile(data, parseInt(grade.options[grade.selectedIndex].value))
+    console.log(data);
     
+    
+}
+
+window.onload = init;
+
+function init(){
+    var submitButton = document.getElementById('submitFile');
+    submitButton.onclick = handleSubmitButton;
 }
