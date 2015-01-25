@@ -46,6 +46,40 @@ function Database() {
         for (var pupil = 0; pupil<Iist.length; pupil++){
             if(this.OENS.indexOf(Iist[pupil][0]) < 0){
                 var newPupil = new Student(Iist[pupil][0], Iist[pupil][1] + Iist[pupil][2])
+                this.OENS.push(Iist[pupil][0])
+                switch(grade){
+                    case 3:
+                        newPupil.Grd3 = Iist[pupil].slice(5);
+                        break;
+                    case 6:
+                        newPupil.Grd6 = Iist[pupil].slice(5);
+                        break;
+                    case 9:
+                        newPupil.Grd9 = Iist[pupil].slice(5);
+                        break;
+                    default:
+                        alert("Something messed up");
+                        break;
+                }
+                if(Iist[pupil][4]=== 'x'){newPupil.IEP = true;}
+                if(Iist[pupil][3]=== 'F'){newPupil.gender = false;}
+                this.students.push(newPupil);
+            }else{
+                var index = this.search(Iist[pupil][0]);
+                switch(grade){
+                    case 3:
+                        this.students[index].Grd3 = Iist[pupil].slice(5);
+                        break;
+                    case 6:
+                        this.students[index].Grd6 = Iist[pupil].slice(5);
+                        break;
+                    case 9:
+                        this.students[index].Grd9 = Iist[pupil].slice(5);
+                        break;
+                    default:
+                        alert("Something messed up");
+                        break;
+                }
             }
         }
     };
@@ -58,13 +92,13 @@ function Database() {
         return Iist;
     };
     
-    this.creator = function(){
-        for (var student = 1; student < this.text.length; student++){
-        var pupil = new Student(this.text[student][0], this.text[student][1]+this.text[student][2]);
-        this.students.push(pupil);
-        };
-    };
-    this.creator();
+    this.search = function(OEN){
+        for(var pupil = 0; pupil< this.students.length; pupil++){
+            if(this.students[pupil].OEN === OEN){
+                return pupil
+            }
+        }
+    }
     console.log(this.students[0].name[0]);
     
 }
