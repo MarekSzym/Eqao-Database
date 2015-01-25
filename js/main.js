@@ -82,6 +82,7 @@ function Database() {
                 }
             }
         }
+    console.log(this.students);    
     };
     this.splitter = function(data){
         var Iist = data.split("\n");
@@ -105,29 +106,22 @@ var myDataBase = new Database();
 function handleSubmitButton(){
     var fileInput = document.getElementById('fileInput');
     var grade = document.getElementById('grdSelector');
-    var data;
-    fileInput.addEventListener('change', function(e) {
         
-        var file = fileInput.files[0];
+    var file = fileInput.files[0];
          
-        var reader = new FileReader();
+    var reader = new FileReader();
 
-        reader.onload = function(e) {
+    reader.onload = function(){
                                     
             data = reader.result;
-            console.log(data)
+            myDataBase.addFile(data, parseInt(grade.options[grade.selectedIndex].value))
                                         
 	};
 
-	reader.readAsText(file);	
-                               
+    reader.readAsText(file);
+    
 			
-	});
-    //myDataBase.addFile(data, parseInt(grade.options[grade.selectedIndex].value))
-    console.log(data);
-    
-    
-}
+};    
 
 window.onload = init;
 
