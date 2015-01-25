@@ -32,22 +32,31 @@ function Student(OEN, name){
     this.name = name;
     this.gender = true;
     this.IEP = false;
-    this.Grd3 = {};
-    this.Grd6 = {};
+    this.Grd3 = [];
+    this.Grd6 = [];
+    this.Grd9 = [];
 };
 
-function Students(data) {
-    this.text = [];
+function Database() {
+    this.OENS = [];
     this.students = [];
     
-    this.splitter = function(data){
-        var dist = data.split("\n");
-        for(var line in dist){
-            dist[line] = dist[line].split(",");
-        };
-        this.text = dist;
+    this.addFile = function(data, grade){
+        var Iist = this.splitter(data);
+        for (var pupil = 0; pupil<Iist.length; pupil++){
+            if(this.OENS.indexOf(Iist[pupil][0]) < 0){
+                var newPupil = new Student(Iist[pupil][0], Iist[pupil][1] + Iist[pupil][2])
+            }
+        }
     };
-    this.splitter(data);
+    this.splitter = function(data){
+        var Iist = data.split("\n");
+        Iist.shift();
+        for(var line in Iist){
+            Iist[line] = Iist[line].split(",");
+        };
+        return Iist;
+    };
     
     this.creator = function(){
         for (var student = 1; student < this.text.length; student++){
