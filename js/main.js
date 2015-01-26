@@ -49,13 +49,13 @@ function Database() {
                 this.OENS.push(Iist[pupil][0])
                 switch(grade){
                     case 3:
-                        newPupil.Grd3 = Iist[pupil].slice(5);
+                        newPupil.Grd3 = Iist[pupil].slice(5,11);
                         break;
                     case 6:
-                        newPupil.Grd6 = Iist[pupil].slice(5);
+                        newPupil.Grd6 = Iist[pupil].slice(5,11);
                         break;
                     case 9:
-                        newPupil.Grd9 = Iist[pupil].slice(5);
+                        newPupil.Grd9 = Iist[pupil].slice(5,11);
                         break;
                     default:
                         alert("Something messed up");
@@ -68,13 +68,13 @@ function Database() {
                 var index = this.search(Iist[pupil][0]);
                 switch(grade){
                     case 3:
-                        this.students[index].Grd3 = Iist[pupil].slice(5);
+                        this.students[index].Grd3 = Iist[pupil].slice(5,11);
                         break;
                     case 6:
-                        this.students[index].Grd6 = Iist[pupil].slice(5);
+                        this.students[index].Grd6 = Iist[pupil].slice(5,11);
                         break;
                     case 9:
-                        this.students[index].Grd9 = Iist[pupil].slice(5);
+                        this.students[index].Grd9 = Iist[pupil].slice(5,11);
                         break;
                     default:
                         alert("Something messed up");

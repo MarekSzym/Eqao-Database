@@ -15,14 +15,43 @@
                 
                 <div>
                     <input type="file" id="fileInput">
+                    Select Grade:
                     <select id="grdSelector">
                         <option value="3">Grade 3</option>
                         <option value="6">Grade 6</option>
                         <option value="9">Grd9 Dia</option>
                     </select><br><br>
                     <input type="button" id="submitFile" value="Submit File"><br><br>
-                    <input type="button" id="done" value="Done Submiting">
+                    <!--<input type="button" id="done" value="Done Submiting">-->
                 </div>
+                <h2>Add Filters</h2>
+                
+                <div>
+                    Select Grade:
+                    <select id="grdSelector">
+                            <option value="3">Grade 3</option>
+                            <option value="6">Grade 6</option>
+                            <option value="9">Grd9 Dia</option>
+                    </select>
+                    Select Filter:
+                    <select id="filterSelector">
+                        <option value="0">Reading Lvl</option>
+                        <option value="1">Reading Raw</option>
+                        <option value="2">Writing Lvl</option>
+                        <option value="3">Writing Raw</option>
+                        <option value="4">Math Lvl</option>
+                        <option value="5">Math Raw</option>
+                    </select><br><br>
+                    Only Students That Have:
+                    <select>
+                        <option value="0">Less Than</option>
+                        <option value="1">Greater Than</option>
+                    </select>
+                    <input type="text" id ="num" size="1" placeholder="Num"><br><br>
+                    <input type="button" id="addFilter" value="Add Filter">
+                
+                    
+                </div>    
 
             </div>
 	</body>
