@@ -81,8 +81,7 @@ function Database() {
                         break;
                 }
             }
-        }
-    console.log(this.students);    
+        } 
     };
     this.splitter = function(data){
         var Iist = data.split("\n");
@@ -101,7 +100,7 @@ function Database() {
         }
     }
     
-    this.filter = function(grade, item,sign, value){
+    this.filter = function(grade, item, sign, value){
         var filteredStudents = [];
         for(var pupil = 0; pupil < this.students.length; pupil++){
             if(sign===0){
@@ -126,7 +125,17 @@ function Database() {
                 }
             }
         }
+        this.students = filteredStudents;
+        console.log(this.students);
     };
+    
+    this.displayResults = function(){
+        var text = "";
+        for (var pupil = 0; pupil < this.students.length; pupil++){
+            text += "OEN: " + this.students[pupil].OEN + ", Name: " + this.students[pupil].name.slice(1).slice(0,-1) + "\n";
+        }
+        return text;
+    }
 }
 var myDataBase = new Database();
 
@@ -149,7 +158,18 @@ function handleSubmitButton(){
 };    
 
 function handleAddFilterButton(){
-    
+    var grdSelector = document.getElementById('grdSelector');
+    var filterSelector = document.getElementById('filterSelector');
+    var signSelector = document.getElementById('signSelector');
+    var numInput = document.getElementById('num');
+    myDataBase.filter(parseInt(grdSelector.options[grdSelector.selectedIndex].value), parseInt(filterSelector.options[filterSelector.selectedIndex].value),
+    parseInt(signSelector.options[signSelector.selectedIndex].value), parseInt(numInput.value));
+}
+
+function handleResultsButton(){
+    var displayArea = document.getElementById('results');
+    var text = myDataBase.displayResults()
+    displayArea.innerHTML = text;
 }
 
 window.onload = init;
@@ -158,5 +178,9 @@ function init(){
     var submitButton = document.getElementById('submitFile');
     submitButton.onclick = handleSubmitButton;
     
-    var addFilterButton = document.getElem
+    var addFilterButton = document.getElementById('addFilter');
+    addFilterButton.onclick = handleAddFilterButton;
+    
+    var resultsButton = document.getElementById('result');
+    resultsButton.onclick = handleResultsButton;
 }

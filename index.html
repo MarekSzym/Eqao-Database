@@ -43,16 +43,19 @@
                         <option value="5">Math Raw</option>
                     </select><br><br>
                     Only Students That Have:
-                    <select>
+                    <select id="signSelector">
                         <option value="0">Less Than</option>
                         <option value="1">Greater Than</option>
                     </select>
                     <input type="text" id ="num" size="1" placeholder="Num"><br><br>
                     <input type="button" id="addFilter" value="Add Filter"><br><br>
-                    <input type="button" id="done" value="Done Adding Filters">
+                    <input type="button" id="result" value="Done Adding Filters/Print Results">
+                </div>
                 
-                    
-                </div>    
+                <h2>Students Who Passed Filters</h2>
+                <div>
+                    <pre id="results"></pre>
+                </div>
 
             </div>
 	</body>
