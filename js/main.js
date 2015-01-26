@@ -99,7 +99,34 @@ function Database() {
                 return pupil;
             }
         }
-    }    
+    }
+    
+    this.filter = function(grade, item,sign, value){
+        var filteredStudents = [];
+        for(var pupil = 0; pupil < this.students.length; pupil++){
+            if(sign===0){
+                if (grade === 3){
+                    if(this.students[pupil].Grd3[item] < value){filteredStudents.push(this.students[pupil])}
+                }
+                if (grade === 6){
+                    if(this.students[pupil].Grd6[item] < value){filteredStudents.push(this.students[pupil])}
+                }
+                if (grade === 9){
+                    if(this.students[pupil].Grd9[item] < value){filteredStudents.push(this.students[pupil])}
+                }
+            }else{
+                if (grade === 3){
+                    if(this.students[pupil].Grd3[item] > value){filteredStudents.push(this.students[pupil])}
+                }
+                if (grade === 6){
+                    if(this.students[pupil].Grd6[item] > value){filteredStudents.push(this.students[pupil])}
+                }
+                if (grade === 9){
+                    if(this.students[pupil].Grd9[item] > value){filteredStudents.push(this.students[pupil])}
+                }
+            }
+        }
+    };
 }
 var myDataBase = new Database();
 
@@ -118,14 +145,18 @@ function handleSubmitButton(){
                                         
 	};
 
-    reader.readAsText(file);
-    
-			
+    reader.readAsText(file);			
 };    
+
+function handleAddFilterButton(){
+    
+}
 
 window.onload = init;
 
 function init(){
     var submitButton = document.getElementById('submitFile');
     submitButton.onclick = handleSubmitButton;
+    
+    var addFilterButton = document.getElem
 }
